@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="PriceTrail — track product prices across stores over time, privately in your browser.">
+  <title>PriceTrail — Personal Price History Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" aria-label="Main navigation">
+      <div class="brand">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l5-6 4 3 6-8 3 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 21h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span class="brand-name">PriceTrail</span>
+      </div>
+      <nav class="nav">
+        <button type="button" class="nav-item" data-nav="dashboard" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="products">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 8l9 5 9-5M12 13v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>My Products</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="compare">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <span>Compare</span>
+        </button>
+        <button type="button" class="nav-item" data-nav="settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.09a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.09a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.09a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span>Settings</span>
+        </button>
+      </nav>
+      <p class="sidebar-note">Your data stays in this browser. No account, no server.</p>
+    </aside>
+
+    <main class="main" id="view" aria-live="polite"></main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <button type="button" class="nav-item" data-nav="dashboard" aria-current="page">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="12" width="7" height="9" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="16" width="7" height="5" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        <span>Dashboard</span>
+      </button>
+      <button type="button" class="nav-item" data-nav="products">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M3 8l9 5 9-5M12 13v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Products</span>
+      </button>
+      <button type="button" class="nav-item" data-nav="compare">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <span>Compare</span>
+      </button>
+      <button type="button" class="nav-item" data-nav="settings">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.09a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55h.09a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.09a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <span>Settings</span>
+      </button>
+    </nav>
+  </div>
+
+  <dialog id="product-dialog" class="dialog">
+    <form id="product-form" method="dialog">
+      <h2 id="product-dialog-title">Add product</h2>
+      <input type="hidden" id="pf-id">
+      <label class="field-label">Product name
+        <input class="input" id="pf-name" type="text" required minlength="2" maxlength="100" autocomplete="off">
+      </label>
+      <label class="field-label">Category
+        <select class="input" id="pf-category">
+          <option>Groceries</option>
+          <option>Electronics</option>
+          <option>Home &amp; Garden</option>
+          <option>Clothing</option>
+          <option>Health &amp; Beauty</option>
+          <option>Baby &amp; Kids</option>
+          <option>Sports</option>
+          <option>Automotive</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <label class="field-label">Brand (optional)
+        <input class="input" id="pf-brand" type="text" maxlength="100" autocomplete="off">
+      </label>
+      <label class="field-label">Target price (optional)
+        <input class="input" id="pf-target" type="text" inputmode="decimal" placeholder="e.g. 1250.00" autocomplete="off">
+      </label>
+      <label class="field-label">Product URL (optional)
+        <input class="input" id="pf-url" type="url" maxlength="500" placeholder="https://" autocomplete="off">
+      </label>
+      <label class="field-label">Notes (optional)
+        <textarea class="input" id="pf-notes" rows="2" maxlength="500"></textarea>
+      </label>
+      <p class="form-error" id="pf-error" role="alert"></p>
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary">Save product</button>
+        <button type="button" class="btn btn-ghost" data-close-dialog>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="price-dialog" class="dialog">
+    <form id="price-form" method="dialog">
+      <h2 id="price-dialog-title">Add price</h2>
+      <input type="hidden" id="pr-product-id">
+      <input type="hidden" id="pr-id">
+      <label class="field-label">Store
+        <input class="input" id="pr-store" type="text" required minlength="1" maxlength="60" autocomplete="off" placeholder="e.g. Daraz, Imtiaz, Carrefour">
+      </label>
+      <label class="field-label">Price
+        <input class="input" id="pr-price" type="text" inputmode="decimal" required placeholder="e.g. 1250.00" autocomplete="off">
+      </label>
+      <label class="field-label">Date recorded
+        <input class="input" id="pr-date" type="date" required>
+      </label>
+      <label class="field-label">Notes (optional)
+        <input class="input" id="pr-notes" type="text" maxlength="500" autocomplete="off">
+      </label>
+      <p class="form-error" id="pr-error" role="alert"></p>
+      <div class="btn-row">
+        <button type="submit" class="btn btn-primary">Save price</button>
+        <button type="button" class="btn btn-ghost" data-close-dialog>Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="confirm-dialog" class="dialog">
+    <p id="confirm-message"></p>
+    <div class="btn-row">
+      <button type="button" class="btn btn-danger" id="confirm-yes">Confirm</button>
+      <button type="button" class="btn btn-ghost" id="confirm-no">Cancel</button>
+    </div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+
+  <script src="calculations.js"></script>
+  <script src="db.js"></script>
+  <script src="charts.js"></script>
+  <script src="backup.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
